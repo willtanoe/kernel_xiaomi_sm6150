@@ -6,9 +6,9 @@
 #
 # Download needed files
 KERNEL_DIR=`pwd`
-TC_BRANCH="clang-16"
-TC_DIR="$HOME/tc/proton/$TC_BRANCH"
-TC_URL="https://gitlab.com/lecmngend/proton-clang"
+TC_BRANCH="16"
+TC_DIR="$HOME/tc/playground/$TC_BRANCH"
+TC_URL="https://gitlab.com/PixelOS-Devices/playgroundtc.git"
 TC_GIT_BRANCH=$TC_BRANCH
 
 AK3_URL="https://github.com/willtanoe/AnyKernel3"
