@@ -944,6 +944,13 @@ gen_headers_out_arm64 = [
     "linux/netfilter/ipset/ip_set_list.h",
      "linux/msm_eth.h",
 
+    "misc/drv8846.h",
+     "linux/akm09970.h",
+     "linux/ncsi.h",
+     "linux/f2fs.h",
+     "linux/leds-aw3644.h",
+
+
     // From arch/arm64/include/uapi/**/*.h
 
     "asm/auxvec.h",
@@ -989,8 +996,11 @@ genrule {
 
 genrule {
     name: "qti_generate_kernel_headers_arm64",
-    tools: ["headers_install.sh"],
-    tool_files: [
+     tools: [
+        "headers_install.sh",
+        "unifdef",
+    ],
+     tool_files: [
         "kernel_headers.py",
     ],
     srcs: gen_headers_srcs_arm64 +[
@@ -1010,6 +1020,7 @@ genrule {
         "--new_gen_headers_bp $(location :qti_generate_gen_headers_arm64) " +
         "--version_makefile $(location Makefile) " +
         "--headers_install $(location headers_install.sh) " +
+        "--unifdef $(location unifdef) " +
         "--include_uapi $(locations include/uapi/**/*.h)",
     out: ["linux/version.h"] + gen_headers_out_arm64,
 }
