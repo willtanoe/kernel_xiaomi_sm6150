@@ -6,9 +6,9 @@
 #
 # Download needed files
 KERNEL_DIR=`pwd`
-TC_BRANCH="16"
-TC_DIR="$HOME/tc/playground/$TC_BRANCH"
-TC_URL="https://gitlab.com/PixelOS-Devices/playgroundtc.git"
+TC_BRANCH="master"
+TC_DIR="$HOME/tc/neutron/$TC_BRANCH"
+TC_URL="https://github.com/willtanoe/clang-neutron.git"
 TC_GIT_BRANCH=$TC_BRANCH
 
 AK3_URL="https://github.com/willtanoe/AnyKernel3"
@@ -16,7 +16,7 @@ AK3_BRANCH="master"
 AK3_DIR="$HOME/tc/AK3/$AK3_BRANCH"
 # Check if toolchain is exist
 if ! [ -d "$TC_DIR" ]; then
-		echo "Proton clang not found! Cloning to $TC_DIR..."
+		echo "Neutron clang not found! Cloning to $TC_DIR..."
 		if ! git clone --single-branch --depth=1 -b $TC_GIT_BRANCH $TC_URL $TC_DIR; then
 				echo "Cloning failed! Aborting..."
 				exit 1
